@@ -16,7 +16,7 @@ public class User {
     @Column(length = 10)
     private String userName;
 
-    private String userPhone;
+    private long userPhone;
 
     @Column(length = 20)
     private String userEmail;
@@ -63,11 +63,11 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserPhone() {
+    public long getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(String userPhone) {
+    public void setUserPhone(long userPhone) {
         this.userPhone = userPhone;
     }
 
@@ -126,7 +126,7 @@ public class User {
         super();
     }
 
-    public User(int userId, String userName, String userPhone, String userEmail, String userPass, String userConfirmPass, String userAdd, double userSalary, String userCard, boolean verified) {
+    public User(int userId, String userName, long userPhone, String userEmail, String userPass, String userConfirmPass, String userAdd, double userSalary, String userCard, boolean verified) {
         this.userId = userId;
         this.userName = userName;
         this.userPhone = userPhone;

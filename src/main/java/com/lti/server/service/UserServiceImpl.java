@@ -1,7 +1,9 @@
 package com.lti.server.service;
 
+import com.lti.server.dao.UserDao;
 import com.lti.server.entity.User;
 import com.lti.server.exception.UserException;
+import com.lti.server.exception.UserPassMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +37,7 @@ public class UserServiceImpl implements  UserService{
     }
 
     @Override
-    public boolean Validate(int userId, String userName, String userPass) throws UserException {
+    public boolean Validate(int userId, String userName, String userPass) throws UserException, UserPassMismatchException {
         return false;
     }
 }
