@@ -2,6 +2,7 @@ package com.lti.server.service;
 
 import java.util.List;
 
+import com.lti.server.dao.AdminDao;
 import com.lti.server.entity.Admin;
 import com.lti.server.entity.Product;
 import com.lti.server.entity.User;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class AdminServiceImpl {
+public class AdminServiceImpl implements AdminService{
 	
 	@Autowired
 	AdminDao dao;
