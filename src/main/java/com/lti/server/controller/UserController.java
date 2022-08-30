@@ -2,6 +2,8 @@ package com.lti.server.controller;
 
 
 import com.lti.server.entity.User;
+import com.lti.server.exception.UserException;
+import com.lti.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +23,7 @@ public class UserController {
     @PostMapping("/adduser")
     public int addUser(@RequestBody User user){
         int userId = userService.addUser(user);
+        return userId;
     }
 
     //Getting all users (localhost:8085/user-api/getAllUser)
