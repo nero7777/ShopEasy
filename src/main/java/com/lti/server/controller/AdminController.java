@@ -35,12 +35,12 @@ public class AdminController {
 		List<Admin> a = adminloginservice.getByAdminId(adminId);
 
 		if (a.get(0).getAdminId() != adminId) {
-			return 2;
+			return 2;			//UserId is invalid/does not exist
 		} else if (a.get(0).getAdminName().equals(adminName) && a.get(0).getAdminPassword().equals(adminPassword)) {
-			return 1;
+			return 1;			//Succefully logged-In
 		}		
 		else
-			return 3;
+			return 3;			//Wrong Password
 		}
 
 	@GetMapping("/userDetails")
@@ -83,6 +83,6 @@ public class AdminController {
 		adminloginservice.updateCardStatus(userId);
 		return "UserId "+userId+" is verified";
 	}
-//	
+
 
 }
