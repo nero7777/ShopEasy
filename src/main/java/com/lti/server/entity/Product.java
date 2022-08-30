@@ -1,15 +1,14 @@
 package com.lti.server.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="PRODUCTS")
 public class Product {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="Prod_Seq") //generating sequence that is created in database
+    @SequenceGenerator(name="Prod_Seq", sequenceName="Prod_Seq", allocationSize=1)
     @Column(name="PRDID")
     int prdId;
 
