@@ -3,6 +3,7 @@ package com.lti.server.controller;
 
 import com.lti.server.entity.User;
 import com.lti.server.exception.UserException;
+import com.lti.server.exception.UserPassMismatchException;
 import com.lti.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -51,12 +52,12 @@ public class UserController {
     @GetMapping("/validate/{userId}/{userName}/{userPass}")
     public boolean validate(@PathVariable("userId") int userId
             ,@PathVariable("userName") String userName
-            ,@PathVariable("userPass") String userPass)throws UserException {
+            ,@PathVariable("userPass") String userPass)throws UserException,UserPassMismatchException {
 
         try{
                 boolean res = userService.Validate(userId,userName,userPass);
                 return res;
-        }catch(UserException e){
+        }catch(UserException | UserPassMismatchException e){
             System.out.println(e.getMessage());
         }
         return false;
