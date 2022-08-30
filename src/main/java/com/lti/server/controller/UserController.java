@@ -59,7 +59,7 @@ public class UserController {
         return false;
     }
 
-    
+
         //Sample user for user Body
     	/*{
 		   "userName":"Rahul",
