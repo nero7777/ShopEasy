@@ -18,6 +18,6 @@ public interface UserService {
 
     public int updateByPhone(int userId,long newPhoneNo);
 
-    public boolean validate(int userId,String userName,String userPass) throws UserException;
+    public boolean Validate(int userId,String userName,String userPass) throws UserException;
 
 }

@@ -35,7 +35,7 @@ public class UserServiceImpl implements  UserService{
     }
 
     @Override
-    public boolean validate(int userId, String userName, String userPass) throws UserException {
+    public boolean Validate(int userId, String userName, String userPass) throws UserException {
         return false;
     }
 }
