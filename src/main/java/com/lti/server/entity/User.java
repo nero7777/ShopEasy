@@ -34,10 +34,20 @@ public class User {
     @Column(length = 10)
     private String userCard;
 
+    private boolean verified=false;
+    
     //Getters and Setters
 
 
-    public int getUserId() {
+    public boolean isVerified() {
+		return verified;
+	}
+
+	public void setVerified(boolean verified) {
+		this.verified = verified;
+	}
+
+	public int getUserId() {
         return userId;
     }
 
@@ -116,7 +126,7 @@ public class User {
         super();
     }
 
-    public User(int userId, String userName, String userPhone, String userEmail, String userPass, String userConfirmPass, String userAdd, double userSalary, String userCard) {
+    public User(int userId, String userName, String userPhone, String userEmail, String userPass, String userConfirmPass, String userAdd, double userSalary, String userCard, boolean verified) {
         this.userId = userId;
         this.userName = userName;
         this.userPhone = userPhone;
@@ -126,5 +136,6 @@ public class User {
         this.userAdd = userAdd;
         this.userSalary = userSalary;
         this.userCard = userCard;
+        this.verified=verified;
     }
 }
