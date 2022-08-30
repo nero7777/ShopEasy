@@ -6,6 +6,7 @@ import java.util.List;
 import com.lti.server.entity.Admin;
 import com.lti.server.entity.Product;
 import com.lti.server.entity.User;
+import com.lti.server.exception.UserException;
 import com.lti.server.service.AdminService;
 
 import com.lti.server.service.AdminService;
@@ -30,19 +31,32 @@ public class AdminController {
 	
 
 	@GetMapping("/validate/{adminId}/{adminName}/{adminPassword}")
-	public int validateAdmin(@PathVariable(value = "adminId") long adminId,
+	public String validateAdmin(@PathVariable(value = "adminId") long adminId,
 			@PathVariable(value = "adminName") String adminName,
-			@PathVariable(value = "adminPassword") String adminPassword) {
+			@PathVariable(value = "adminPassword") String adminPassword) throws UserException{
 
 		List<Admin> a = adminloginservice.getByAdminId(adminId);
+		
+		try{
+            if(a.get(0).getAdminName().equalsIgnoreCase(adminName) && a.get(0).getAdminPassword().equals(adminPassword)){
+                return "Login Successfull";
+            }
+            else{
+               throw new UserPassMismatchException("Username or Password Incorrect !!");
+            }
 
-		if (a.get(0).getAdminId() != adminId) {
-			return 2;			//UserId is invalid/does not exist
-		} else if (a.get(0).getAdminName().equals(adminName) && a.get(0).getAdminPassword().equals(adminPassword)) {
-			return 1;			//Succefully logged-In
-		}		
-		else
-			return 3;			//Wrong Password
+        }catch(Exception u){
+            throw new UserException("Admin Not Found !!");
+        }
+		
+
+//		if (a.get(0).getAdminId() != adminId && (a.get(0).getAdminName().equals(adminName) && a.get(0).getAdminPassword().equals(adminPassword))) {
+//			return 2;			//UserId is invalid/does not exist
+//		} else if (a.get(0).getAdminName().equals(adminName) && a.get(0).getAdminPassword().equals(adminPassword)) {
+//			return 1;			//Successfully logged-In
+//		}		
+//		else
+//			return 3;			//Wrong Password
 		}
 
 	@GetMapping("/userDetails")

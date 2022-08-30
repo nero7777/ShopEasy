@@ -2,10 +2,7 @@ package com.lti.server.controller;
 
 import com.lti.server.entity.Product;
 import com.lti.server.service.ProductService;
-<<<<<<< HEAD
 
-=======
->>>>>>> faeab6a313452a02984a058e033456ee40e33192
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
