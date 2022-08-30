@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.server.entity.UserBill;
-import com.lti.dao.UserBillDao;
+import com.lti.server.dao.UserBillDao;
 
 @Service("userBillService")
 public class UserBillServiceImpl implements UserBillService{
