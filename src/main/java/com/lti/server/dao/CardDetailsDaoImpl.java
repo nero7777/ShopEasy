@@ -42,10 +42,9 @@ public class CardDetailsDaoImpl implements CardDetailsDao {
 
 	@Override
 	public List<CardDetails> getCardbyId(int userId) {
-		// TODO Auto-generated method stub
-		Query qry = em.createQuery("select c from CarDetails c where c.userId=:id");
-		qry.setParameter("id",userId);
-		List<CardDetails> myList = qry.getResultList();
+		Query qry=em.createQuery("select c from CardDetails c where c.userId=:id");
+		qry.setParameter("id", userId);
+		List<CardDetails> myList=qry.getResultList();
 		return myList;
 	}
 
@@ -53,13 +52,13 @@ public class CardDetailsDaoImpl implements CardDetailsDao {
 	@Transactional
 	public double deductBalbyId(int userId, double amt) {
 		// TODO Auto-generated method stub
-		Query qry = em.createQuery("select c from CardDetails c where c.userId=:id ");
+		Query qry = em.createQuery("select c from CardDetails c where c.userId=:id");
 		qry.setParameter("id",userId);
 		List<CardDetails> myCard = qry.getResultList();
 		double intialBal = myCard.get(0).getBalance();
 		double finalBal = intialBal - amt;
 		myCard.get(0).setBalance(finalBal);
-		Query qry1 = em.createQuery("UPDATE CardDetails c SET c.balance=:finalBal"+ "WHERE c.userId=:id");
+		Query qry1 = em.createQuery("UPDATE CardDetails c SET c.balance=:finalBal " + "WHERE c.userId=:id");
 		qry1.setParameter("finalBal", finalBal);
 		qry1.setParameter("id",userId);
 		
@@ -77,7 +76,7 @@ public class CardDetailsDaoImpl implements CardDetailsDao {
 		double intialBal = myCard.get(0).getBalance();
 		double finalBal = intialBal+amt;
 		myCard.get(0).setBalance(finalBal);
-		Query qry1 = em.createQuery("UPDATE CardDetails c SET c.balance=:finalBal" + "WHERE c.userId =:id ");
+		Query qry1 = em.createQuery("UPDATE CardDetails c SET c.balance=:finalBal " + "WHERE c.userId=:id");
 		qry1.setParameter("finalBal",finalBal );
 		qry1.setParameter("id",userId);
 		int rowsUpdated = qry1.executeUpdate();
