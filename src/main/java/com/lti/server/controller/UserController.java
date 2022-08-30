@@ -48,19 +48,12 @@ public class UserController {
             return "Phone no for " + id + " updated Successfully !!";
     }
 
-    //Validate User
+    //Validate User (localhost:8085/user-api/validate/2/Rahul/rahul)
     @GetMapping("/validate/{userId}/{userName}/{userPass}")
-    public boolean validate(@PathVariable("userId") int userId
+    public int validate(@PathVariable("userId") int userId
             ,@PathVariable("userName") String userName
             ,@PathVariable("userPass") String userPass)throws UserException,UserPassMismatchException {
-
-        try{
-                boolean res = userService.Validate(userId,userName,userPass);
-                return res;
-        }catch(UserException | UserPassMismatchException e){
-            System.out.println(e.getMessage());
-        }
-        return false;
+       return userService.Validate(userId,userName,userPass);
     }
 
 
