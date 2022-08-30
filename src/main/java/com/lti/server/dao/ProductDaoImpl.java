@@ -1,6 +1,7 @@
 package com.lti.server.dao;
 
 import com.lti.server.entity.Product;
+import org.springframework.stereotype.Repository;
 
 import org.springframework.stereotype.Repository;
 

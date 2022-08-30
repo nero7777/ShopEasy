@@ -36,7 +36,7 @@ public class CardDetailsController {
 			card.setBalance(1000000);
 		}
 		int cardNo = services.addCard(userId, cardType, card.getCardLimit(), card.getBalance());
-		return "Card No" + cardNo +"added";
+		return "Card No " + cardNo +" added";
 	}
 	// http://localhost:8085/card-api/getallcards
 	
