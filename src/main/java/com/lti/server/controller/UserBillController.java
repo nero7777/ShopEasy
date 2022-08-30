@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lti.beans.Product;
-import com.lti.beans.UserBill;
-import com.lti.services.UserBillService;
+import com.lti.server.entity.Product;
+import com.lti.server.entity.UserBill;
+import com.lti.server.service.UserBillService;
 
 @CrossOrigin("*")
 @RestController
