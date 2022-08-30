@@ -51,13 +51,13 @@ public class UserDaoImpl implements  UserDao{
     }
 
     @Override
-    public boolean Validate(int userId, String userName, String userPass) throws UserException, UserPassMismatchException {
+    public int Validate(int userId, String userName, String userPass) throws UserException, UserPassMismatchException {
         try{
             User user = em.find(User.class,userId);
-            if(user.getUserName().equalsIgnoreCase(userName) && user.getUserPass().equals(userPass)){
-                return true;
+            if((user.getUserName().equalsIgnoreCase(userName)) && (user.getUserPass().equals(userPass))){
+                return user.getUserId();
             }else{
-               throw new UserPassMismatchException("Username or Password Incorrect !!");
+                return -1;
             }
 
         }catch(Exception u){
