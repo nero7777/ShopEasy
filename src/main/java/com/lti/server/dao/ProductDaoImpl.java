@@ -3,6 +3,8 @@ package com.lti.server.dao;
 import com.lti.server.entity.Product;
 import org.springframework.stereotype.Repository;
 
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
