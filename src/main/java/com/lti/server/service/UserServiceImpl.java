@@ -37,7 +37,7 @@ public class UserServiceImpl implements  UserService{
     }
 
     @Override
-    public int Validate(int userId, String userName, String userPass) throws UserException, UserPassMismatchException {
+    public boolean Validate(int userId, String userName, String userPass) throws UserException {
         return userDao.Validate(userId,userName,userPass);
     }
 }

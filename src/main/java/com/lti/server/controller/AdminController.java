@@ -34,10 +34,11 @@ public class AdminController {
 	@GetMapping("/validate/{adminId}/{adminName}/{adminPassword}")
 	public int validateAdmin(@PathVariable(value = "adminId") long adminId,
 			@PathVariable(value = "adminName") String adminName,
-			@PathVariable(value = "adminPassword") String adminPassword) throws UserException{
+			@PathVariable(value = "adminPassword") String adminPassword) throws UserException, UserPassMismatchException{
 
 		List<Admin> a = adminloginservice.getByAdminId(adminId);
 		
+
 //		try{
 //            if(a.get(0).getAdminName().equalsIgnoreCase(adminName) && a.get(0).getAdminPassword().equals(adminPassword)){
 //                return "Login Successfull";
@@ -49,6 +50,19 @@ public class AdminController {
 //        }catch(Exception u){
 //            throw new UserException("Admin Not Found !!");
 //        }
+
+//		try{
+//            if(a.get(0).getAdminName().equalsIgnoreCase(adminName) && a.get(0).getAdminPassword().equals(adminPassword)){
+//                return "Login Successful!";
+//            }
+//            else{
+//               throw new UserPassMismatchException("Username or Password Incorrect !!");
+//            }
+//
+//        }catch(Exception u){
+//            throw new UserException("Admin Not Found !!");
+//        }
+
 		
 
 		if (a.get(0).getAdminId() != adminId && (a.get(0).getAdminName().equals(adminName) && a.get(0).getAdminPassword().equals(adminPassword))) {

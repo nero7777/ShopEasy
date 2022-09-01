@@ -19,6 +19,6 @@ public interface UserService {
 
     public int updateByPhone(int userId,long newPhoneNo);
 
-    public int Validate(int userId,String userName,String userPass) throws UserException, UserPassMismatchException;
+    public boolean Validate(int userId,String userName,String userPass) throws UserException;
 
 }

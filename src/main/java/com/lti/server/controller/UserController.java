@@ -50,10 +50,15 @@ public class UserController {
 
     //Validate User (localhost:8085/user-api/validate/2/Rahul/rahul)
     @GetMapping("/validate/{userId}/{userName}/{userPass}")
-    public int validate(@PathVariable("userId") int userId
-            ,@PathVariable("userName") String userName
-            ,@PathVariable("userPass") String userPass)throws UserException,UserPassMismatchException {
-       return userService.Validate(userId,userName,userPass);
+    public boolean validate(@PathVariable("userId") int userId, @PathVariable("userName") String userName,
+                            @PathVariable("userPass") String userPass) throws UserException {
+        try {
+            boolean res = userService.Validate(userId, userName, userPass);
+            return res;
+        } catch (UserException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
 

@@ -15,5 +15,5 @@ public interface UserDao {
 
     public int updateByPhone(int id,long newPhoneNo);
 
-    public int Validate(int userId, String userName, String userPass) throws UserException, UserPassMismatchException;
+    public boolean Validate(int userId, String userName, String userPass) throws UserException;
 }
